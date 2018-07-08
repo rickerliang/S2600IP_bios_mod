@@ -1,10 +1,10 @@
 # S2600IP_bios_mod
 ## 事由
-近日深水宝淘了一片intel原装S2600IP4，双路E5，16内存槽，支持双槽4显卡，平民deeplearning神器呢。这版比一般的SSI EEB规格还要大一圈，机箱的选择就很有限，正规支持这种尺寸的貌似只有supermicro的塔式机箱(卧式放机柜的暂时放弃)，最后选了个TT P5加一顿diy，勉强装上。然后装上两颗es版的2680V2，死活点不亮，status led一直显示黄色。装个正式版的cpu就能点亮。怀疑是bios的问题，刷了几个其他版本的bios，也是黄。于是疑点落在了cpu microcode上，就开始了bios mod的旅程。
+近日深水宝淘了一片intel原装S2600IP4，双路E5，16内存槽，支持双槽4显卡，平民deeplearning神器呢。这板比一般的SSI EEB规格还要大一圈，机箱的选择就很有限，正规支持这种尺寸的貌似只有supermicro的塔式机箱(卧式放机柜的暂时放弃)，最后选了个TT P5加一顿diy，勉强装上。然后装上两颗es版的2680V2，死活点不亮，status led一直显示黄色。装个正式版的cpu就能点亮。怀疑是bios的问题，刷了几个其他版本的bios，也是黄。于是疑点落在了cpu microcode上，就开始了bios mod的旅程。
 
 
 ## 工具
-#### bios mod设计到的工具有
+#### bios mod涉及到的工具有
 - [MCExtractor](https://github.com/platomav/MCExtractor), 从bios提取cpu microcode
 - [MMTool](https://www.baidu.com/s?wd=mmtool), 一般的bios文件都可以用mmtool添加cpu microcode，但intel这款主板的bios，mmtool搞不掂
 - [WinHex](https://www.baidu.com/s?wd=mmtool), 十六进制编辑工具
