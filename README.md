@@ -14,7 +14,7 @@
 #### 查找缺失的cpu microcode
 找到同样是C602芯片组的bios，这里用到的有两款，一款是华擎的EP2C602，一款是supermicro的X9DRI。先查看S2600IP4的bios有些什么cpu microcode，用MCExtractor可以提取bios的cpu microcode，发现只有4个，分别是206D5、206D6、206D7和306E4，分别对应是正式版E5和正式版E5 V2。再看EP2C602的bios，比S2600IP4的bios多了306E0、306E2和306E3，而X9DRI的bios还多了一个306E7。到此，我决定先把306E0、306E2和306E3加入到S2600IP4的bios里面，试试效果。
 #### 查找cpu microcode在bios内的位置
-这里再次强调一下，S2600IP4的bios无法通过MMTool导入新的cpu microcode，这是其中一个坑爹的地方，所以一下描述的方法，需要一点点动手能力。首先，用UEFITool打开S2600IP4的bios，虽然FIT头部已经显示出cpu microcode的条目及其偏移，但无法导出和编辑。此时，我们先对bios生成report文件，打开report文件，查找microcode关键字，得到两处匹配，注意力集中在这个匹配，记下GUID
+这里再次强调一下，S2600IP4的bios无法通过MMTool导入新的cpu microcode，这是其中一个坑爹的地方，所以以下描述的方法，需要一点点动手能力。首先，用UEFITool打开S2600IP4的bios，虽然FIT头部已经显示出cpu microcode的条目及其偏移，但无法导出和编辑。此时，我们先对bios生成report文件，打开report文件，查找microcode关键字，得到两处匹配，注意力集中在这个匹配，记下GUID
 ```
  Volume          | FFSv2                 | 001503F0 | 00080000 | C5364C33 | -- AD3FFFFF-D28B-44C4-9F13-9EA98A97F9F0
  File            | Raw                   | 00150438 | 0007FC18 | 30A64852 | --- Microcode
